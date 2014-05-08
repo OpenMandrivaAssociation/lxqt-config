@@ -1,0 +1,4 @@
+# modules aren't devel files...
+addFilter("E: devel-file-in-non-devel-package")
+# and they aren't library packages either
+addFilter("E: executable-in-library-package")
