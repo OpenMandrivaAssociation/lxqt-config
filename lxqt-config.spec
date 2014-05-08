@@ -10,6 +10,7 @@ Group: Graphical desktop/KDE
 BuildRequires: cmake
 BuildRequires: cmake(lxqt)
 BuildRequires: qt4-devel
+BuildRequires: pkgconfig(xcursor)
 
 %description
 Config panel for the LXQt desktop
