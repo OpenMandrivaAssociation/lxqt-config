@@ -1,6 +1,6 @@
 Name: lxqt-config
 Version: 0.7.0
-Release: 2
+Release: 3
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 Source100: %{name}.rpmlintrc
 Summary: Config panel for the LXQt desktop
