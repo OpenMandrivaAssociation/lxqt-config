@@ -1,4 +1,4 @@
-%define git 20140803
+%define git 0
 Name: lxqt-config
 Version: 0.8.0
 %if %git
@@ -15,8 +15,8 @@ License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
 BuildRequires: cmake(lxqt-qt5)
-BuildRequires:	cmake(Qt5LinguistTools)
-BuildRequires:	cmake(Qt5X11Extras)
+BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: qt5-devel
 BuildRequires: pkgconfig(xcursor)
 
@@ -27,7 +27,7 @@ Config panel for the LXQt desktop
 %if %git
 %setup -qn %{name}-%{git}
 %else
-%setup -q -c %{name}-%{version}
+%setup -q
 %endif
 %cmake -DUSE_QT5:BOOL=ON
 
@@ -40,9 +40,10 @@ Config panel for the LXQt desktop
 %files
 %{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
-%{_bindir}/lxqt-config-input
 %{_bindir}/lxqt-config-appearance
 %{_bindir}/lxqt-config-file-associations
+%{_bindir}/lxqt-config-input
+%{_bindir}/lxqt-config-monitor
 %{_libdir}/lib*.so
 %{_datadir}/applications/lxqt-config*.desktop
-%{_datadir}/lxqt/lxqt-config
+%{_datadir}/lxqt-qt5/translations
