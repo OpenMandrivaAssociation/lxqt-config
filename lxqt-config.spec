@@ -19,6 +19,7 @@ BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: qt5-devel
 BuildRequires: pkgconfig(xcursor)
+Requires:	   system-tools-backends2
 
 %description
 Config panel for the LXQt desktop
