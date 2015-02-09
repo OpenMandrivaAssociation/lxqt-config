@@ -52,7 +52,7 @@ Config panel for the LXQt desktop.
 %{_bindir}/lxqt-config-input
 %{_bindir}/lxqt-config-monitor
 %{_libdir}/lib*.so
-%{_datadir}/lxqt/applications/lxqt-config*.desktop
+%{_datadir}/applications/lxqt-config*.desktop
 %{_datadir}/lxqt/translations/lxqt-config-appearance/*
 %{_datadir}/lxqt/translations/lxqt-config-cursor/*
 %{_datadir}/lxqt/translations/lxqt-config-file-associations/*
