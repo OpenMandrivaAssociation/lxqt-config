@@ -1,11 +1,11 @@
 %define git 0
 Name: lxqt-config
-Version: 0.8.0
+Version: 0.9.0
 %if %git
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 1
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -14,7 +14,7 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
-BuildRequires: cmake(lxqt-qt5)
+BuildRequires: cmake(lxqt)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: qt5-devel
@@ -22,7 +22,7 @@ BuildRequires: pkgconfig(xcursor)
 Requires:	   system-tools-backends2
 
 %description
-Config panel for the LXQt desktop
+Config panel for the LXQt desktop.
 
 %prep
 %if %git
