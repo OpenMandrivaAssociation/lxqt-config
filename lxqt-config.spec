@@ -39,6 +39,12 @@ Config panel for the LXQt desktop.
 %makeinstall_std -C build
 
 %files
+%dir %{_datadir}/translations/lxqt-config-appearance
+%dir %{_datadir}/translations/lxqt-config-cursor
+%dir %{_datadir}/translations/lxqt-config-file-associations
+%dir %{_datadir}/translations/lxqt-config-input
+%dir %{_datadir}/translations/lxqt-config-monitor
+%dir %{_datadir}/translations/lxqt-config
 %{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
@@ -47,4 +53,9 @@ Config panel for the LXQt desktop.
 %{_bindir}/lxqt-config-monitor
 %{_libdir}/lib*.so
 %{_datadir}/applications/lxqt-config*.desktop
-%{_datadir}/lxqt-qt5/translations
+%{_datadir}/translations/lxqt-config-appearance/*
+%{_datadir}/translations/lxqt-config-cursor/*
+%{_datadir}/translations/lxqt-config-file-associations/*
+%{_datadir}/translations/lxqt-config-input/*
+%{_datadir}/translations/lxqt-config-monitor/*
+%{_datadir}/translations/lxqt-config/*
