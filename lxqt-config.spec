@@ -5,7 +5,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -19,6 +19,7 @@ BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: qt5-devel
 BuildRequires: pkgconfig(xcursor)
+BuildRequires: desktop-file-utils
 Requires:	   system-tools-backends2
 
 %description
@@ -37,6 +38,11 @@ Config panel for the LXQt desktop.
 
 %install
 %makeinstall_std -C build
+
+for desktop in %{buildroot}/%{_datadir}/applications/*.desktop; do
+	desktop-file-edit --remove-category=LXQt --add-category=X-LXQt \
+    --remove-only-show-in=LXQt --add-only-show-in=X-LXQt ${desktop}
+done
 
 %files
 %dir %{_datadir}/lxqt/translations/lxqt-config-appearance
