@@ -9,6 +9,7 @@ Release: 2
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
+Patch0: lxqt-config-0.9.0-desktop-validate.patch
 Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
@@ -31,6 +32,7 @@ Config panel for the LXQt desktop.
 %else
 %setup -q
 %endif
+%apply_patches
 %cmake -DUSE_QT5:BOOL=ON
 
 %build
@@ -40,7 +42,7 @@ Config panel for the LXQt desktop.
 %makeinstall_std -C build
 
 for desktop in %{buildroot}/%{_datadir}/applications/*.desktop; do
-	desktop-file-edit --remove-category=LXQt --add-category=X-LXQt \
+    desktop-file-edit --remove-category=LXQt --add-category=X-LXQt \
     --remove-only-show-in=LXQt --add-only-show-in=X-LXQt ${desktop}
 done
 
