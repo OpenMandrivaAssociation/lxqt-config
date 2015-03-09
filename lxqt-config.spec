@@ -5,7 +5,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -15,10 +15,14 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
-BuildRequires: cmake(lxqt)
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5DBus)
+BuildRequires: cmake(Qt5Xml)
+BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: qt5-devel
+BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(lxqt)
+BuildRequires: cmake(qt5xdg)
 BuildRequires: pkgconfig(xcursor)
 Requires:	   system-tools-backends2
 
@@ -32,7 +36,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake -DUSE_QT5:BOOL=ON
+%cmake
 
 %build
 %make -C build
