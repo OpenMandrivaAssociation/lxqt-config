@@ -15,6 +15,7 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
+BuildRequires: qmake5
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
@@ -25,7 +26,6 @@ BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: pkgconfig(xcursor)
-Requires:	   system-tools-backends2
 
 %description
 Config panel for the LXQt desktop.
