@@ -5,7 +5,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 5
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -25,7 +25,11 @@ BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(qt5xdg)
-BuildRequires: pkgconfig(xcursor)
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: pkgconfig(xfixes)
+BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(xcb)
+BuildRequires: zlib-devel
 
 %description
 Config panel for the LXQt desktop.
@@ -37,7 +41,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake
+%cmake_qt5
 
 %build
 %make -C build
