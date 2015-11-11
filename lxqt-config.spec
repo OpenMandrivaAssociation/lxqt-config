@@ -1,15 +1,14 @@
 %define git 0
 Name: lxqt-config
-Version: 0.9.0
+Version: 0.10.0
 %if %git
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 8
-Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
+Release: 1
+Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
 %endif
 Source100: %{name}.rpmlintrc
-Patch0: lxqt-config-0.9.0-desktop-validate.patch
 Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
@@ -26,6 +25,7 @@ BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5Screen)
 BuildRequires: pkgconfig(xcursor)
 BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
@@ -63,8 +63,9 @@ Config panel for the LXQt desktop.
 %{_bindir}/lxqt-config-appearance
 %{_bindir}/lxqt-config-file-associations
 %{_bindir}/lxqt-config-input
+%{_bindir}/lxqt-config-locale
 %{_bindir}/lxqt-config-monitor
-%{_libdir}/lib*.so
+%{_libdir}/lxqt-config
 %{_datadir}/applications/lxqt-config*.desktop
 %{_datadir}/lxqt/translations/lxqt-config-appearance/*
 %{_datadir}/lxqt/translations/lxqt-config-cursor/*
