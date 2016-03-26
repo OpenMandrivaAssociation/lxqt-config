@@ -5,7 +5,7 @@ Version: 0.10.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 6
+Release: 7
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -26,7 +26,7 @@ BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(KF5WindowSystem)
-BuildRequires: cmake(KF5Screen)
+BuildRequires: cmake(KF5Screen) >= 5.6.0-2
 BuildRequires: pkgconfig(xcursor)
 BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
