@@ -70,6 +70,8 @@ export LC_ALL=en_US.utf-8
 %dir %{_datadir}/lxqt/translations/lxqt-config-input
 %dir %{_datadir}/lxqt/translations/lxqt-config-monitor
 %dir %{_datadir}/lxqt/translations/lxqt-config
+%dir %{_datadir}/lxqt/translations/lxqt-config-locale
+%dir %{_datadir}/lxqt/translations/lxqt-config-brightness
 %{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
@@ -77,11 +79,16 @@ export LC_ALL=en_US.utf-8
 %{_bindir}/lxqt-config-input
 %{_bindir}/lxqt-config-locale
 %{_bindir}/lxqt-config-monitor
+%{_bindir}/lxqt-config-brightness
 %{_libdir}/lxqt-config
 %{_datadir}/applications/lxqt-config*.desktop
+%{_iconsdir}/hicolor/*/*/*.svg
+%{_datadir}/lxqt/icons/monitor.svg
 %{_datadir}/lxqt/translations/lxqt-config-appearance/*
 %{_datadir}/lxqt/translations/lxqt-config-cursor/*
 %{_datadir}/lxqt/translations/lxqt-config-file-associations/*
 %{_datadir}/lxqt/translations/lxqt-config-input/*
 %{_datadir}/lxqt/translations/lxqt-config-monitor/*
 %{_datadir}/lxqt/translations/lxqt-config/*
+%{_datadir}/lxqt/translations/lxqt-config-brightness/*
+%{_datadir}/lxqt/translations/lxqt-config-locale/*
