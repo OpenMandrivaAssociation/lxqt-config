@@ -46,7 +46,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -DLXQT_ETC_XDG_DIR="%{_sysconfdir}/xdg/qt5" -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS=NO -DLXQT_ETC_XDG_DIR:PATH="%{_sysconfdir}/xdg/qt5" -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
