@@ -5,7 +5,7 @@ Version: 0.11.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -46,7 +46,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS=NO -DLXQT_ETC_XDG_DIR="%{_sysconfdir}/xdg/qt5" -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
@@ -65,7 +65,7 @@ export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
 %files
-%{_sysconfdir}/xdg/menus/lxqt-config.menu
+%{_sysconfdir}/xdg/qt5/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
 %{_bindir}/lxqt-config-file-associations
