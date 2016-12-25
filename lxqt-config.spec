@@ -5,7 +5,7 @@ Version: 0.11.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -33,6 +33,7 @@ BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: zlib-devel
+Requires: lxqt-l10n
 %rename lxqt-config-randr
 
 %description
@@ -45,7 +46,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake_qt5 -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
@@ -64,14 +65,6 @@ export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
 %files
-%dir %{_datadir}/lxqt/translations/lxqt-config-appearance
-%dir %{_datadir}/lxqt/translations/lxqt-config-cursor
-%dir %{_datadir}/lxqt/translations/lxqt-config-file-associations
-%dir %{_datadir}/lxqt/translations/lxqt-config-input
-%dir %{_datadir}/lxqt/translations/lxqt-config-monitor
-%dir %{_datadir}/lxqt/translations/lxqt-config
-%dir %{_datadir}/lxqt/translations/lxqt-config-locale
-%dir %{_datadir}/lxqt/translations/lxqt-config-brightness
 %{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
@@ -84,11 +77,3 @@ export LC_ALL=en_US.utf-8
 %{_datadir}/applications/lxqt-config*.desktop
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
-%{_datadir}/lxqt/translations/lxqt-config-appearance/*
-%{_datadir}/lxqt/translations/lxqt-config-cursor/*
-%{_datadir}/lxqt/translations/lxqt-config-file-associations/*
-%{_datadir}/lxqt/translations/lxqt-config-input/*
-%{_datadir}/lxqt/translations/lxqt-config-monitor/*
-%{_datadir}/lxqt/translations/lxqt-config/*
-%{_datadir}/lxqt/translations/lxqt-config-brightness/*
-%{_datadir}/lxqt/translations/lxqt-config-locale/*
