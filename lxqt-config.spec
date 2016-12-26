@@ -13,6 +13,7 @@ Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
+Patch0: lxqt-config-0.11.0-use-lxqt-build-tools.patch
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja
@@ -25,6 +26,7 @@ BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(lxqt)
+BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Screen) >= 5.6.0-2
@@ -46,7 +48,7 @@ Config panel for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -DLXQT_ETC_XDG_DIR:PATH="%{_sysconfdir}/xdg/qt5" -G Ninja
+%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
