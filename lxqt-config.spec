@@ -1,11 +1,11 @@
 %define git 0
 Name: lxqt-config
-Version: 0.11.0
+Version: 0.11.1
 %if %git
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 1
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -13,7 +13,6 @@ Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
-Patch0: lxqt-config-0.11.0-use-lxqt-build-tools.patch
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja
