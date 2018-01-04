@@ -5,7 +5,7 @@ Version: 0.12.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -66,7 +66,7 @@ export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
 %files
-%{_sysconfdir}/xdg/qt5/menus/lxqt-config.menu
+%{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
 %{_bindir}/lxqt-config-file-associations
