@@ -1,11 +1,11 @@
 %define git 0
 Name: lxqt-config
-Version: 0.13.0
+Version: 0.14.0
 %if %git
-Release: 1.%git.1
+Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 1
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -34,7 +34,6 @@ BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: zlib-devel
-Requires: lxqt-l10n
 %rename lxqt-config-randr
 
 %description
@@ -64,8 +63,9 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
+%find_lang %{name} --with-qt --all-name
 
-%files
+%files -f %{name}.lang
 %{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
@@ -78,3 +78,6 @@ export LC_ALL=en_US.utf-8
 %{_datadir}/applications/lxqt-config*.desktop
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
+%{_mandir}/man1/lxqt-config-appearance.1*
+%{_mandir}/man1/lxqt-config-mouse.1*
+%{_mandir}/man1/lxqt-config.1*
