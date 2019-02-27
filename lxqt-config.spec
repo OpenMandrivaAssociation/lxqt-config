@@ -2,7 +2,7 @@
 Name: lxqt-config
 Version: 0.14.1
 %if %git
-Release: 1.%git.1
+Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
 Release: 1
@@ -33,6 +33,7 @@ BuildRequires: pkgconfig(xcursor)
 BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
+BuildRequires: pkgconfig(xi)
 BuildRequires: pkgconfig(xorg-libinput)
 BuildRequires: zlib-devel
 %rename lxqt-config-randr
