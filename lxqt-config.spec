@@ -35,6 +35,7 @@ BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(xi)
 BuildRequires: pkgconfig(xorg-libinput)
+BuildRequires: pkgconfig(libudev)
 BuildRequires: zlib-devel
 %rename lxqt-config-randr
 
