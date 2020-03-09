@@ -5,7 +5,7 @@ Version: 0.14.1
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -13,6 +13,7 @@ Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
+Source1: lxqt-config-appearance.conf
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja
@@ -66,6 +67,10 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
+
+mkdir -p %{buildroot}%{_datadir}/lxqt
+install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.conf
+
 %find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
@@ -78,6 +83,7 @@ export LC_ALL=en_US.utf-8
 %{_bindir}/lxqt-config-monitor
 %{_bindir}/lxqt-config-brightness
 %{_libdir}/lxqt-config
+%{_datadir}/lxqt/lxqt-config-appearance.conf
 %{_datadir}/applications/lxqt-config*.desktop
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
