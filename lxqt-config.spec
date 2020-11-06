@@ -1,8 +1,8 @@
 %define git 0
 Name: lxqt-config
-Version: 0.15.0
+Version: 0.16.0
 %if %git
-Release: 0.%git.1
+Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
 Release: 1
@@ -85,6 +85,7 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.con
 %{_libdir}/lxqt-config
 %{_datadir}/lxqt/lxqt-config-appearance.conf
 %{_datadir}/applications/lxqt-config*.desktop
+%{_datadir}/desktop-directories
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
 %{_mandir}/man1/lxqt-config-appearance.1*
