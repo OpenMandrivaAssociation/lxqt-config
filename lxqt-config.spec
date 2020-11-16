@@ -1,11 +1,11 @@
 %define git 0
 Name: lxqt-config
-Version: 0.16.0
+Version:	0.16.1
 %if %git
-Release: 1.%git.1
+Release:	1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release:	1
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
