@@ -1,8 +1,8 @@
 %define git 0
 Name: lxqt-config
-Version:	1.0.0
+Version:	1.1.0
 %if %git
-Release:	0.%{git}.1
+Release:	1.%{git}.1
 Source0: %{name}-%{git}.tar.xz
 %else
 Release:	1
@@ -91,19 +91,3 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.con
 %{_mandir}/man1/lxqt-config-appearance.1*
 %{_mandir}/man1/lxqt-config-mouse.1*
 %{_mandir}/man1/lxqt-config.1*
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-appearance/lxqt-config-appearance_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-appearance/lxqt-config-appearance_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-brightness/lxqt-config-brightness_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-brightness/lxqt-config-brightness_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-cursor/lxqt-config-cursor_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-cursor/lxqt-config-cursor_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-file-associations/lxqt-config-file-associations_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-file-associations/lxqt-config-file-associations_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-input/lxqt-config-input_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-input/lxqt-config-input_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-locale/lxqt-config-locale_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-locale/lxqt-config-locale_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-monitor/lxqt-config-monitor_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-monitor/lxqt-config-monitor_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config/lxqt-config_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config/lxqt-config_ast.qm
