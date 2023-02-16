@@ -2,10 +2,10 @@
 Name: lxqt-config
 Version:	1.2.0
 %if %git
-Release:	1.%{git}.1
+Release:	0.%{git}.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release:	2
+Release:	3
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
 Source100: %{name}.rpmlintrc
@@ -14,6 +14,10 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 Source1: lxqt-config-appearance.conf
+Patch0: https://github.com/lxqt/lxqt-config/pull/915.patch
+# KScreen (used by lxqt-config) 5.27 needs C++ >= 17
+# Might as well go to 20 while at it.
+Patch1: lxqt-config-c++20.patch
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja
@@ -45,11 +49,10 @@ Config panel for the LXQt desktop.
 
 %prep
 %if %git
-%setup -qn %{name}-%{git}
+%autosetup -p1 -n %{name}-%{git}
 %else
-%setup -q
+%autosetup -p1
 %endif
-%autopatch -p1
 %cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build

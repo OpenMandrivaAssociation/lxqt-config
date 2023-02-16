@@ -1,0 +1,24 @@
+diff -up lxqt-config-1.2.0/CMakeLists.txt.2~ lxqt-config-1.2.0/CMakeLists.txt
+--- lxqt-config-1.2.0/CMakeLists.txt.2~	2022-11-05 09:15:52.000000000 +0100
++++ lxqt-config-1.2.0/CMakeLists.txt	2023-02-16 19:03:13.799548966 +0100
+@@ -37,6 +37,8 @@ find_package(Qt5X11Extras ${QT_MINIMUM_V
+ find_package(Qt5Xml ${QT_MINIMUM_VERSION} REQUIRED)
+ find_package(lxqt ${LXQT_MINIMUM_VERSION} REQUIRED)
+ 
++set(CMAKE_CXX_STANDARD 20)
++
+ include(LXQtPreventInSourceBuilds)
+ include(LXQtCompilerSettings NO_POLICY_SCOPE)
+ 
+diff -up lxqt-config-1.2.0/lxqt-config-monitor/CMakeLists.txt.omv~ lxqt-config-1.2.0/lxqt-config-monitor/CMakeLists.txt
+--- lxqt-config-1.2.0/lxqt-config-monitor/CMakeLists.txt.omv~	2023-02-16 19:04:49.677233562 +0100
++++ lxqt-config-1.2.0/lxqt-config-monitor/CMakeLists.txt	2023-02-16 19:04:57.861291997 +0100
+@@ -3,6 +3,8 @@ project(lxqt-config-monitor)
+ find_package(KF5Screen ${KF5SCREEN_MINIMUM_VERSION} REQUIRED)
+ find_package(Qt5Svg ${QT_MINIMUM_VERSION} REQUIRED)
+ 
++set(CMAKE_CXX_STANDARD 20)
++
+ set(HEADERS
+     monitorsettingsdialog.h
+     monitor.h
