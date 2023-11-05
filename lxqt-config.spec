@@ -1,13 +1,12 @@
-%define git 0
+#define git 0
 Name: lxqt-config
 Version:	1.4.0
-%if %git
-Release:	0.%{git}1
+%if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
-Release:	1
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
+Release:	%{?git:0.%{git}.}1
 Source100: %{name}.rpmlintrc
 Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
@@ -49,11 +48,7 @@ Requires: lxqt-menu-data
 Config panel for the LXQt desktop.
 
 %prep
-%if %git
-%autosetup -p1 -n %{name}-%{git}
-%else
-%autosetup -p1
-%endif
+%autosetup -p1 -n %{name}-%{?git:%{git}}%{!?git:%{version}}
 %cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
