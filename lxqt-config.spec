@@ -1,6 +1,6 @@
 %define git 0
 Name: lxqt-config
-Version:	1.3.0
+Version:	1.4.0
 %if %git
 Release:	0.%{git}1
 Source0: %{name}-%{git}.tar.xz
@@ -41,6 +41,8 @@ BuildRequires: pkgconfig(xi)
 BuildRequires: pkgconfig(xorg-libinput)
 BuildRequires: pkgconfig(libudev)
 BuildRequires: zlib-devel
+BuildRequires: cmake(lxqt-menu-data)
+Requires: lxqt-menu-data
 %rename lxqt-config-randr
 
 %description
@@ -76,7 +78,6 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.con
 %find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/menus/lxqt-config.menu
 %{_bindir}/lxqt-config
 %{_bindir}/lxqt-config-appearance
 %{_bindir}/lxqt-config-file-associations
@@ -87,7 +88,6 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.con
 %{_libdir}/lxqt-config
 %{_datadir}/lxqt/lxqt-config-appearance.conf
 %{_datadir}/applications/lxqt-config*.desktop
-%{_datadir}/desktop-directories
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
 %{_mandir}/man1/lxqt-config-appearance.1*
