@@ -1,0 +1,12 @@
+diff -up lxqt-config-2.0.0/lxqt-config-input/touchpaddevice.cpp.omv~ lxqt-config-2.0.0/lxqt-config-input/touchpaddevice.cpp
+--- lxqt-config-2.0.0/lxqt-config-input/touchpaddevice.cpp.omv~	2024-04-19 20:57:02.516509207 +0200
++++ lxqt-config-2.0.0/lxqt-config-input/touchpaddevice.cpp	2024-04-19 20:57:14.180664277 +0200
+@@ -368,7 +368,7 @@ bool TouchpadDevice::setTapToDragEnabled
+ 
+ bool TouchpadDevice::setAccelSpeed(float speed) const
+ {
+-    return set_xi2_property(LIBINPUT_PROP_ACCEL, QList<QVariant>({speed}));
++    return set_xi2_property(LIBINPUT_PROP_ACCEL, QList<QVariant>({static_cast<qsizetype>(speed)}));
+ }
+ 
+ int TouchpadDevice::scrollMethodsAvailable() const

@@ -1,6 +1,6 @@
 #define git 0
 Name: lxqt-config
-Version:	1.4.0
+Version:	2.0.0
 %if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
@@ -8,30 +8,27 @@ Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-c
 %endif
 Release:	%{?git:0.%{git}.}1
 Source100: %{name}.rpmlintrc
+Patch0: lxqt-config-2.0.0-compile.patch
 Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 Source1: lxqt-config-appearance.conf
-# KScreen (used by lxqt-config) 5.27 needs C++ >= 17
-# Might as well go to 20 while at it.
-Patch1: lxqt-config-c++20.patch
 BuildRequires: cmake
-BuildRequires: qmake5
 BuildRequires: ninja
-BuildRequires: cmake(Qt5Core)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5Xml)
-BuildRequires: cmake(Qt5Svg)
-BuildRequires: cmake(Qt5Concurrent)
-BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt6Core)
+BuildRequires: cmake(Qt6Widgets)
+BuildRequires: cmake(Qt6DBus)
+BuildRequires: cmake(Qt6Xml)
+BuildRequires: cmake(Qt6Svg)
+BuildRequires: cmake(Qt6SvgWidgets)
+BuildRequires: cmake(Qt6Concurrent)
+BuildRequires: cmake(Qt6LinguistTools)
 BuildRequires: cmake(lxqt)
-BuildRequires: cmake(lxqt-build-tools)
-BuildRequires: cmake(qt5xdg)
-BuildRequires: cmake(KF5WindowSystem)
-BuildRequires: cmake(KF5Screen) >= 5.6.0-2
+BuildRequires: cmake(lxqt2-build-tools)
+BuildRequires: cmake(qt6xdg)
+BuildRequires: cmake(KF6WindowSystem)
+BuildRequires: cmake(KF6Screen)
 BuildRequires: pkgconfig(xcursor)
 BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(x11)
@@ -42,14 +39,13 @@ BuildRequires: pkgconfig(libudev)
 BuildRequires: zlib-devel
 BuildRequires: cmake(lxqt-menu-data)
 Requires: lxqt-menu-data
-%rename lxqt-config-randr
 
 %description
 Config panel for the LXQt desktop.
 
 %prep
 %autosetup -p1 -n %{name}-%{?git:%{git}}%{!?git:%{version}}
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -G Ninja
+%cmake -DPULL_TRANSLATIONS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
