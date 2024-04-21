@@ -6,7 +6,7 @@ Source0: %{name}-%{git}.tar.xz
 %else
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Source100: %{name}.rpmlintrc
 Patch0: lxqt-config-2.0.0-compile.patch
 Summary: Config panel for the LXQt desktop
@@ -45,7 +45,10 @@ Config panel for the LXQt desktop.
 
 %prep
 %autosetup -p1 -n %{name}-%{?git:%{git}}%{!?git:%{version}}
-%cmake -DPULL_TRANSLATIONS=NO -G Ninja
+%cmake \
+	-DPULL_TRANSLATIONS=NO \
+	-DCMAKE_SKIP_RPATH:BOOL=OFF \
+	-G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
