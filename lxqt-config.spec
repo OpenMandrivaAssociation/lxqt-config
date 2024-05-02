@@ -13,7 +13,6 @@ Summary: Config panel for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
-Source1: lxqt-config-appearance.conf
 BuildRequires: cmake
 BuildRequires: ninja
 BuildRequires: cmake(Qt6Core)
@@ -39,6 +38,7 @@ BuildRequires: pkgconfig(libudev)
 BuildRequires: zlib-devel
 BuildRequires: cmake(lxqt-menu-data)
 Requires: lxqt-menu-data
+Recommends: distro-release-desktop-LXQt
 
 %description
 Config panel for the LXQt desktop.
@@ -66,9 +66,6 @@ export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
-mkdir -p %{buildroot}%{_datadir}/lxqt
-install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.conf
-
 %find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
@@ -80,7 +77,6 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/lxqt/lxqt-config-appearance.con
 %{_bindir}/lxqt-config-monitor
 %{_bindir}/lxqt-config-brightness
 %{_libdir}/lxqt-config
-%{_datadir}/lxqt/lxqt-config-appearance.conf
 %{_datadir}/applications/lxqt-config*.desktop
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
