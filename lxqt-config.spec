@@ -10,7 +10,7 @@ Release:	%{?git:0.%{git}.}3
 Source100: %{name}.rpmlintrc
 Patch0: lxqt-config-2.0.0-compile.patch
 Summary: Config panel for the LXQt desktop
-URL: http://lxqt.org/
+URL: https://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
