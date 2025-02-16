@@ -80,5 +80,5 @@ export LC_ALL=en_US.utf-8
 %{_iconsdir}/hicolor/*/*/*.svg
 %{_datadir}/lxqt/icons/monitor.svg
 %{_mandir}/man1/lxqt-config-appearance.1*
-#{_mandir}/man1/lxqt-config-mouse.1*
+%{_mandir}/man1/lxqt-config-input.1.*
 %{_mandir}/man1/lxqt-config.1*
