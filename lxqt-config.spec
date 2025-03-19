@@ -6,7 +6,7 @@ Source0: %{name}-%{git}.tar.xz
 %else
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Source100: %{name}.rpmlintrc
 Summary: Config panel for the LXQt desktop
 URL: https://lxqt.org/
