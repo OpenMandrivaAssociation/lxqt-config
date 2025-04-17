@@ -1,12 +1,12 @@
 #define git 0
 Name: lxqt-config
-Version:	2.1.1
+Version:	2.2.0
 %if 0%{?git:1}
 Source0: %{name}-%{git}.tar.xz
 %else
 Source0: https://github.com/lxqt/lxqt-config/releases/download/%{version}/lxqt-config-%{version}.tar.xz
 %endif
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}1
 Source100: %{name}.rpmlintrc
 Summary: Config panel for the LXQt desktop
 URL: https://lxqt.org/
